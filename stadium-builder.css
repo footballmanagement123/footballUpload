@@ -1,0 +1,145 @@
+body {
+  background-color: rgb(0, 0, 0);
+  margin: 0;
+  height: 100vh;
+}
+.navbar {
+  width: 100%;
+  background-color: #1b1b1b;
+  white-space: nowrap;
+  display: flex;
+  justify-content: left;
+  height: 40px;
+  position: fixed;
+}
+.navbar a {
+  display: flex;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  text-align: left;
+  padding: 14px 14px;
+  text-decoration: none;
+  font-size: 1em;
+  transition: 0.5s;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+.navbar a:hover {
+  color: rgb(211, 211, 211);
+}
+.sidebar {
+  height: 100%;
+  width: 600px;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  background-color: #212121;
+  overflow-x:auto;
+  overflow-y: auto;
+  padding-top: 0px;
+  opacity: 0%;
+  transition: opacity 0.3s ease-in-out;
+}
+.sidebar.visible {
+  opacity: 100%;
+}
+/* Style for the links inside the sidebar */
+.sidebar a {
+  width: 250px;
+  display: block;
+  color: #ffffff;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+/* Style for the active link */
+.sidebar a.active {
+  background-color: #363636;
+  color: white;
+}
+
+/* Style for the on-hover links */
+.sidebar a:hover:not(.active) {
+  background-color: #2a2a2a;
+  color: white;
+}
+.picture-container {
+  height: 100%;
+  width: 250px;
+  background-color: rgb(41, 41, 41);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+.picture-container img {
+  height: 160px;
+  width: 160px;
+  min-height: 160px;
+  min-width: 160px;
+  max-height: 160px;
+  max-width: 160px;
+  object-fit: cover;
+  object-position: center;
+  align-items: center;
+  margin-bottom: 40px; /* add this line to add some space between images */
+}
+/*
+icons
+*/
+.threed-viewer-container {
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 100vh;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+@media screen and (max-width: 600px) {
+  .sidebar {
+    width: 100%
+  }
+}
+@media screen and (max-width: 560px) {
+  .sidebar a {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .sidebar a {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sidebar a {
+    width: 110px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .picture-container {
+    width: 200px;
+  }
+  .sidebar a {
+    width: 130px;
+  }
+}
+/*
+height
+*/
+@media screen and (max-height: 643px) {
+  .picture-container {
+    justify-content: start;
+  }
+  .picture-container img {
+    margin-bottom: 20px; /* add this line to add some space between images */
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stadium-builder.css">
+
+    <!-- icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <!-- top nav -->
+    <div id="navbar" class="navbar">
+        <a id="icon-add-objects" class="icon-add-objects" href="javascript:void(0)"><span
+                class="material-symbols-outlined">
+                add
+            </span></a>
+        <a id="icon-add-stadium" href=""><span class="material-symbols-outlined">
+                stadium
+            </span></a>
+        <a id="icon-add-stadium" href=""><span class="material-symbols-outlined">
+                grass
+            </span></a>
+        <a id="icon-add-stadium" href=""><span class="material-symbols-outlined">
+                edit_road
+            </span></a>
+    </div>
+    </div>
+    <!-- side bar add objects -->
+    <div id="sidebar" class="sidebar">
+        <a class="active" href="">Quick add</a>
+        <a href="">Trees</a>
+        <a href="">Stones</a>
+        <a href="">Play equipment</a>
+        <a href="">Flowers</a>
+        <a href="">Water</a>
+        <div id="picture-container" class="picture-container">
+            <img id="picture-container-category-quickAdd-stone-1"
+                src="desktop-wallpaper-black-blue-gradient-linear-midnight-blue-000000-191970-30a°.jpg" alt="Image 1">
+            <img src="green-blue-violet-gradient-8k-xv-7680x4320.jpg" alt="Image 2">
+            <img src="desktop-wallpaper-black-blue-gradient-linear-midnight-blue-000000-191970-30a°.jpg" alt="Image 3">
+            </center>
+        </div>
+    </div>
+
+    <div class="threed-viewer-container" id="threed-viewer-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(
+            75, // field of view
+            window.innerWidth / window.innerHeight, // aspect ratio
+            0.1, // near clipping plane
+            1000 // far clipping plane
+        );
+        camera.position.set(0, 0, 10);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById("threed-viewer-container").appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+        const loader = new THREE.GLTFLoader();
+
+        loader.load('https://www.dropbox.com/s/p4szi6fvaq3phm1/tree1.glb?dl=1', function (gltf) {
+            scene.add(gltf.scene);
+        });
+
+        function render() {
+            renderer.render(scene, camera);
+            controls.update();
+            requestAnimationFrame(render);
+        }
+
+        render();
+    </script>
+</body>
+
+</html>
